@@ -62,18 +62,24 @@ D7 = X Y Z
 ### PROGRAM 
 /*
 Program for Endocers and Decoders  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
+Developed by: VISMAYA.S
+RegisterNumber:  212221230125
 */
 
+# ENCODE :
+~~~
+module digelec(a,b,c,d0,d1,d2,d3,d4,d5,d6,d7);
+input d0,d1,d2,d3,d4,d5,d6,d7;
+output a,b,c;
+or(a,d4,d5,d6,d7);
+or(b,d2,d3,d6,d7);
+or(c,d1,d3,d5,d7);
+endmodule
+~~~
 
+# RTL LOGIC  
 
-
-
-
-### RTL LOGIC  
-
-
+![output](enocde.png)
 
 
 
@@ -82,15 +88,49 @@ RegisterNumber:
 
 ### TIMING DIGRAMS  
 
-
+![output](encoder.png)
 
 
 
 ### TRUTH TABLE 
+![output](encodertt.png)
+
+### PROGRAM
+
+# DECODE :
+~~~
+module digelec(d0,d1,d2,d3,d4,d5,d6,d7,a,b,c);
+input a,b,c;
+output d0,d1,d2,d3,d4,d5,d6,d7;
+assign d0 = (~a&~b&~c);
+assign d1 = (~a&~b&c);
+assign d2 = (~a&b&~c);
+assign d3 = (~a&b&c);
+assign d4 = (a&~b&~c);
+assign d5 = (a&~b&c);
+assign d6 = (a&b&~c);
+assign d7 = (a&b&c);
+endmodule
+~~~
+
+# RTL LOGIC  
+
+![output](decode.png)
 
 
 
 
 
+
+### TIMING DIGRAMS  
+
+![output](decoder.png)
+
+
+
+### TRUTH TABLE 
+![output](decodertt.jpg)
 
 ### RESULTS 
+
+Thus the  8 to 3 Encoder and  3to8 Decoder using verilog is implemented and the outpput is validated .
